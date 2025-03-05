@@ -1,4 +1,4 @@
-let isMuted = false; // 🚀 Start Muted by Default
+let isMuted = true; // 🚀 Start Muted by Default
 const muteButton = document.getElementById("mute-btn");
 let lastSpokenText = ""; // 🔹 Stores last spoken message when muted
 let currentUtterance = null; // 🔹 Tracks current speech
