@@ -445,18 +445,6 @@ window.addEventListener("message", (event) => {
     }
 });
 
-// Ensure chat box auto-scrolls properly inside the widget
-function fixChatboxHeight() {
-    let chatBox = document.getElementById("chat-box");
-    if (chatBox) {
-        chatBox.style.height = "100%"; 
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to last message
-    }
-}
-
-// Run the fix when new messages are added
-document.addEventListener("DOMContentLoaded", fixChatboxHeight);
-window.addEventListener("resize", fixChatboxHeight);
 
 
 
