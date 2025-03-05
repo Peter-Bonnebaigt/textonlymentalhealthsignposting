@@ -138,7 +138,7 @@ function speakMessage(text, isResuming = false) {
         currentUtterance = new SpeechSynthesisUtterance(utteranceQueue.shift());
         currentUtterance.lang = "en-GB";
         currentUtterance.rate = 0.9;
-        currentUtterance.pitch = 1.3;
+        currentUtterance.pitch = 1.2;
 
         selectBestVoice(currentUtterance);
 
@@ -149,13 +149,14 @@ function speakMessage(text, isResuming = false) {
         speechSynthesis.speak(currentUtterance);
     }
 
-    if (isResuming) {
-        // If resuming, restart the sentence queue from the last stored message
+    if (isResuming && utteranceQueue[0] !== lastSpokenText) {
+        // ✅ Prevents duplicate first sentence when resuming
         utteranceQueue.unshift(lastSpokenText);
     }
 
     speakNextSentence();
 }
+
 
 /*
 // ✅ Ensures Lip Sync Stops Even After Mute/Unmute
