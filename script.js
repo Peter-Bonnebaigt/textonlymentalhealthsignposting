@@ -88,7 +88,7 @@ function addBotMessage(message) {
 // 🎙️ Speech with Lip Sync
 function speakMessage(text, isResuming = false) {
     if (isMuted) {
-        lastSpokenText = text;
+        lastSpokenText = text; // Store last message while muted
         return; // 🛑 Do not speak aloud when muted
     }
 
@@ -112,6 +112,7 @@ function speakMessage(text, isResuming = false) {
 
     lastSpokenText = text; // ✅ Store last message
 
+    // Split text into sentences for smoother speech
     const utteranceQueue = text.match(/[^.!?]+[.!?]*/g) || [text];
 
     function selectBestVoice(utterance) {
@@ -136,18 +137,21 @@ function speakMessage(text, isResuming = false) {
 
         currentUtterance = new SpeechSynthesisUtterance(utteranceQueue.shift());
         currentUtterance.lang = "en-GB";
-        currentUtterance.rate = 0.9;
-        currentUtterance.pitch = 1.2;
+        currentUtterance.rate = 1;
+        currentUtterance.pitch = 1.3;
 
         selectBestVoice(currentUtterance);
 
-       /* currentUtterance.onstart = () => playLipSync();
         currentUtterance.onend = () => {
-            stopLipSync();
             setTimeout(speakNextSentence, 200);
-        }; */
+        };
 
         speechSynthesis.speak(currentUtterance);
+    }
+
+    if (isResuming) {
+        // If resuming, restart the sentence queue from the last stored message
+        utteranceQueue.unshift(lastSpokenText);
     }
 
     speakNextSentence();
