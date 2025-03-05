@@ -110,7 +110,9 @@ function speakMessage(text, isResuming = false) {
         return p1.split("").join(" ") + " " + p2.split("").join(" ");
     });
 
-    lastSpokenText = text; // ✅ Store last message
+    if (!isResuming) {
+        lastSpokenText = text; // ✅ Store last message ONLY when it's a new message
+    }
 
     // Split text into sentences for smoother speech
     const utteranceQueue = text.match(/[^.!?]+[.!?]*/g) || [text];
@@ -149,13 +151,14 @@ function speakMessage(text, isResuming = false) {
         speechSynthesis.speak(currentUtterance);
     }
 
-    if (isResuming && utteranceQueue[0] !== lastSpokenText) {
-        // ✅ Prevents duplicate first sentence when resuming
-        utteranceQueue.unshift(lastSpokenText);
+    if (isResuming) {
+        // ✅ Prevents repeating the last spoken sentence after unmuting
+        utteranceQueue = utteranceQueue.slice(1);
     }
 
     speakNextSentence();
 }
+
 
 
 /*
