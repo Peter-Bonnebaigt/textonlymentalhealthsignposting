@@ -153,7 +153,7 @@ function speakMessage(text, isResuming = false) {
     speakNextSentence();
 }
 
-
+/*
 // ✅ Ensures Lip Sync Stops Even After Mute/Unmute
 speechSynthesis.onend = () => stopLipSync();
 speechSynthesis.oncancel = () => stopLipSync();
@@ -161,7 +161,7 @@ speechSynthesis.oncancel = () => stopLipSync();
 // 🛑 Ensure Lip Sync Stops When Speech is Canceled or Finished
 speechSynthesis.onend = stopLipSync;
 speechSynthesis.oncancel = stopLipSync;
-
+*/
 
 
 //startHeadMovement(); // 🎭 Head moves while speaking
