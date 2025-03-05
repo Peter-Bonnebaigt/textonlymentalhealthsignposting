@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mental Health Support Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+  <div id="chatbot-container">
+    <div id="chatbot-header">💬 Mental Health Signposting</div>
+    <div id="character-container"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button id="send-btn">Send</button>
+      <button id="mute-btn">🔇 Unmuted</button>
+    </div>
+    <div id="chat-box"></div>    
+  </div>
+  
+  <!-- Load Three.js, GLTFLoader, and script.js at the end of body -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
