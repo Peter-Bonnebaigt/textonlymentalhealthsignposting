@@ -399,16 +399,16 @@ function animate() {
 }
 */
 
-
+/*
 if (window.self !== window.top) { // 🚀 Detect if chatbot is inside an iframe
     console.log("Widget Mode Detected - Adjusting Layout");
-/*
+
     // Shrink character size
     let characterContainer = document.getElementById("character-container");
     if (characterContainer) {
         characterContainer.style.maxHeight = "120px"; // ✅ Make character smaller
     }
-    */
+    
 
     // Adjust chat box height to fit inside widget
     let chatBox = document.getElementById("chat-box");
@@ -417,7 +417,35 @@ if (window.self !== window.top) { // 🚀 Detect if chatbot is inside an iframe
         chatBox.style.fontSize = "14px"; // Adjust text size for mobile
     }
 
+} */
+
+if (window.self !== window.top) { // 🚀 Detect if chatbot is inside an iframe
+    console.log("Widget Mode Detected - Adjusting Layout");
+
+    // 📌 Make the chat-box take full height inside the iframe
+    let chatBox = document.getElementById("chat-box");
+    if (chatBox) {
+        chatBox.style.position = "absolute"; 
+        chatBox.style.top = "0"; 
+        chatBox.style.bottom = "0"; 
+        chatBox.style.left = "0";
+        chatBox.style.right = "0";
+        chatBox.style.height = "100%"; // ✅ Take full available height
+        chatBox.style.maxHeight = "100%"; 
+        chatBox.style.overflowY = "auto"; // ✅ Ensure messages scroll correctly
+    }
+
+    // ✅ Ensure the chat messages are visible at the bottom
+    let messageContainer = document.querySelector(".chat-messages"); 
+    if (messageContainer) {
+        messageContainer.style.overflowY = "auto";
+        messageContainer.style.maxHeight = "100%"; 
+        setTimeout(() => {
+            messageContainer.scrollTop = messageContainer.scrollHeight; // ✅ Auto-scroll to latest message
+        }, 100);
+    }
 }
+
 
 function forceScrollToBottom() {
     setTimeout(() => {
