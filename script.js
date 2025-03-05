@@ -435,4 +435,15 @@ if (/Mobi|Android/i.test(navigator.userAgent)) {
     inputField.addEventListener("blur", forceScrollToBottom);
 }
 
+window.addEventListener("message", (event) => {
+    if (event.data.action === "adjustChatHeight") {
+        let chatBox = document.getElementById("chat-box");
+        if (chatBox) {
+            chatBox.style.height = "100%"; // Ensure it takes up full available space
+            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to last message
+        }
+    }
+});
+
+
 
