@@ -9,18 +9,18 @@ muteButton.addEventListener("click", () => {
 
     if (!isMuted && lastSpokenText) {
         speechSynthesis.cancel(); // 🛑 Stop existing speech
-        stopLipSync(); // ✅ Ensure lips stop moving before speaking again
+        //stopLipSync(); // ✅ Ensure lips stop moving before speaking again
         speakMessage(lastSpokenText, true); // ✅ Resume from last message
     } else {
         speechSynthesis.cancel(); // 🔇 If muting, stop speech immediately
-        stopLipSync(); // ✅ Stop lips moving when muted
+        //stopLipSync(); // ✅ Stop lips moving when muted
     }
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
     addBotMessage("Hello! I'm here to help you find mental health support. How are you feeling today?");
-    init3DCharacter();
+   // init3DCharacter();
 
     document.addEventListener("click", () => {
         speechSynthesis.speak(new SpeechSynthesisUtterance(""));
@@ -141,11 +141,11 @@ function speakMessage(text, isResuming = false) {
 
         selectBestVoice(currentUtterance);
 
-        currentUtterance.onstart = () => playLipSync();
+       /* currentUtterance.onstart = () => playLipSync();
         currentUtterance.onend = () => {
             stopLipSync();
             setTimeout(speakNextSentence, 200);
-        };
+        }; */
 
         speechSynthesis.speak(currentUtterance);
     }
@@ -266,7 +266,7 @@ function init3DCharacter() {
     camera.rotation.set(0.54, 0, 0);
     animate();
 }
-*/
+
 // 🎭 Lip Sync Animation
 let lipSyncInterval;
 
@@ -389,7 +389,7 @@ function animate() {
     if (mixer) mixer.update(0.02);
     renderer.render(scene, camera);
 }
-
+*/
 
 
 if (window.self !== window.top) { // 🚀 Detect if chatbot is inside an iframe
