@@ -402,17 +402,18 @@ function animate() {
 
 if (window.self !== window.top) { // 🚀 Detect if chatbot is inside an iframe
     console.log("Widget Mode Detected - Adjusting Layout");
-
+/*
     // Shrink character size
     let characterContainer = document.getElementById("character-container");
     if (characterContainer) {
         characterContainer.style.maxHeight = "120px"; // ✅ Make character smaller
     }
+    */
 
     // Adjust chat box height to fit inside widget
     let chatBox = document.getElementById("chat-box");
     if (chatBox) {
-        chatBox.style.maxHeight = "350px"; // ✅ Ensure messages are always visible
+        //chatBox.style.maxHeight = "350px"; // ✅ Ensure messages are always visible
         chatBox.style.fontSize = "14px"; // Adjust text size for mobile
     }
 
