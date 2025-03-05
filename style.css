@@ -111,6 +111,9 @@ body {
         right: 15px;
         left: 15px;
     }
+    #chat-box {
+    height: 50vh;
+  }
 
 }
 
