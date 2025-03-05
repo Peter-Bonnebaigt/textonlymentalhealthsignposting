@@ -110,6 +110,7 @@ body {
         bottom: 10px; /* Adjust position */
         right: 15px;
         left: 15px;
+        padding-bottom: 20px;
     }
 
 }
