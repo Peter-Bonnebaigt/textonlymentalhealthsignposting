@@ -220,7 +220,7 @@ let animations = {}; // ✅ Ensure animations are stored properly
 let mouthOpenIndex = null;
 let eyeBlinkLIndex = null;
 let eyeBlinkRIndex = null;
-
+/*
 function init3DCharacter() {
     const container = document.getElementById("character-container");
     scene = new THREE.Scene();
@@ -266,7 +266,7 @@ function init3DCharacter() {
     camera.rotation.set(0.54, 0, 0);
     animate();
 }
-
+*/
 // 🎭 Lip Sync Animation
 let lipSyncInterval;
 
