@@ -24,14 +24,14 @@ body {
     text-align: center;
     padding: 10px;
   }
-  
+/*  
   #character-container {
     width: 100%;
     height: 200px;
     background: linear-gradient(rgb(192, 241, 255), rgb(247, 249, 249));
     display: none; 
   }
-  
+  */
   #chat-box {
     height: 250px;
     overflow-y: auto;
