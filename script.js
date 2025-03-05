@@ -137,7 +137,7 @@ function speakMessage(text, isResuming = false) {
 
         currentUtterance = new SpeechSynthesisUtterance(utteranceQueue.shift());
         currentUtterance.lang = "en-GB";
-        currentUtterance.rate = 1;
+        currentUtterance.rate = 0.9;
         currentUtterance.pitch = 1.3;
 
         selectBestVoice(currentUtterance);
